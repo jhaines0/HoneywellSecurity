@@ -156,11 +156,18 @@ void DigitalDecoder::handlePayload(uint64_t payload)
     //
     // Print Packet
     //
-//    if(valid)    
-//        printf("Payload: %lX (Serial %lu, Status %lX, %s)\n", payload, ser, typ, valid ? "VALID":"ERROR");
-//    else
-//        printf("Payload: %lX %s\n", payload, valid ? "VALID":"ERROR");
-
+// #ifdef __arm__
+//     if(valid)    
+//         printf("Valid Payload: %llX (Serial %llu, Status %llX)\n", payload, ser, typ);
+//     else
+//         printf("Invalid Payload: %llX\n", payload);
+// #else    
+//     if(valid)    
+//         printf("Valid Payload: %lX (Serial %lu, Status %lX)\n", payload, ser, typ);
+//     else
+//         printf("Invalid Payload: %lX\n", payload);
+// #endif
+    
     static uint32_t packetCount = 0;
     static uint32_t errorCount = 0;
     
